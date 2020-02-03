@@ -1,0 +1,33 @@
+{
+  "name": "JS-TodoList",
+  "version": "1.0.0",
+  "description": "Todo lists are a staple in beginning webdev tutorials because they can be very simple. There is, however, a lot of room for improvement and many features that can be added.",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aaron-RN/JS-TodoList.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aaron-RN/JS-TodoList/issues"
+  },
+  "homepage": "https://github.com/Aaron-RN/JS-TodoList#readme",
+  "devDependencies": {
+    "css-loader": "^3.4.2",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "date-fns": "^2.9.0"
+  }
+}
