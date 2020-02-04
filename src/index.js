@@ -19,16 +19,6 @@ const NewTodo = (e) => {
   initModal.show(e);
 };
 
-//Function for Modal New Todo Button
-function AddTodo() {
-  //Should also get project id
-  const title = initModal.getTodoTitleInput();
-  const desc = initModal.getTodoDescriptionInput();
-  const dueDate = initModal.getTodoDueDateInput();
-  const priority = initModal.getTodoPriorityInput();
-
-}
-
 // Function for Modal New Project Button
 function AddProject() {
   const id = allProjects.length + 1;
@@ -59,9 +49,20 @@ function AddProject() {
   initModal.hide();
 }
 
+//Function for Modal New Todo Button
+function AddTodo() {
+  //Should also get project id
+  const title = initModal.getTodoTitleInput();
+  const desc = initModal.getTodoDescriptionInput();
+  const dueDate = initModal.getTodoDueDateInput();
+  const priority = initModal.getTodoPriorityInput();
+
+}
+
 document.body.appendChild(initHomePage.init());
 document.body.appendChild(initModal.init());
 
 // Add eventlistner on click NewProject to New Project HTML Button
 initHomePage.newProject(initModal.show);
 initModal.addProjectBtn(AddProject);
+initModal.addTodoBtn(AddTodo);
