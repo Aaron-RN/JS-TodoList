@@ -16,7 +16,7 @@ const NewTodo = (e) => {
 
   const project = allProjects.find((proj) => proj.getID() === todoBtnID);
   alert(`This todo will be assigned to the Project: ID: ${project.getID()} Title: ${project.title}`);
-  initModal.show('Todo');
+  initModal.show(e);
 };
 
 // Function for Modal New Project Button
