@@ -1,5 +1,6 @@
-const Project = (title) => {
+const Project = (id, title) => {
   const todos = [];
+  const getID = () => id;
   const getTodos = () => todos;
   const addTodo = (todo) => {
     todos.push(todo);
@@ -11,8 +12,10 @@ const Project = (title) => {
   const getTodo = (todoId) => todos.find((t) => t.id === todoId);
 
   return {
-    title, getTodos, addTodo, removeTodo, getTodo,
+    title, getTodos, addTodo, removeTodo, getTodo, getID,
   };
 };
+
+// Function creates HTML related to Project object;
 
 export default Project;

@@ -86,14 +86,25 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./node_modules/css-loader/dist/cjs.js!./src/main.css":
-/*!************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./src/main.css ***!
-  \************************************************************/
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/main.css":
+/*!****************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/main.css ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \".hello {\\n  color: red;\\n}\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/main.css?./node_modules/css-loader/dist/cjs.js");
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \"html { box-sizing: border-box; }\\r\\n\\r\\n*,\\r\\n*::before,\\r\\n*::after {\\r\\n  box-sizing: border-box;\\r\\n}\\r\\n\\r\\n/* Used for Debugging purposes */\\r\\n*,\\r\\n*::before,\\r\\n*::after {\\r\\n  -webkit-transition-duration: 0.25s;\\r\\n  -moz-transition-duration: 0.25s;\\r\\n  transition-duration: 0.25s;\\r\\n}\\r\\n\\r\\nbody{\\r\\n  font-size: 18px;\\r\\n}\\r\\ninput[type=\\\"text\\\"]{\\r\\n  outline: none;\\r\\n  border: 1px solid midnightblue;\\r\\n  border-radius: 8px;\\r\\n  padding: 8px;\\r\\n}\\r\\n\\r\\nh1 {\\r\\n  text-align: center;\\r\\n  font-size: 44px;\\r\\n}\\r\\n\\r\\nh2 {\\r\\n  text-align: center;\\r\\n  font-size: 36px;\\r\\n  margin: auto\\r\\n}\\r\\n\\r\\nh3 {\\r\\n  font-size: 30px;\\r\\n}\\r\\n\\r\\n.container{\\r\\n  padding: 0 5em 0 5em;  \\r\\n}\\r\\n\\r\\n.center{\\r\\n  display: block;\\r\\n  text-align: center;\\r\\n  margin: 0 auto;\\r\\n  vertical-align: middle;\\r\\n}\\r\\n.label{\\r\\n  padding: 8px;\\r\\n  margin: 12px 8px;\\r\\n}\\r\\n\\r\\n.button-todo {\\r\\n  outline: none;\\r\\n  border: 2px solid midnightblue;\\r\\n  border-radius: 15px;\\r\\n  box-shadow: 3px 3px rgba(0,0,0,0.2);\\r\\n  padding: 4px 6px 4px 6px;\\r\\n  font-size: 18px;\\r\\n  font-weight: 500;\\r\\n  background: white;\\r\\n  cursor: pointer;\\r\\n}\\r\\n.button-todo:hover{\\r\\n  border-color: goldenrod;\\r\\n  transform:scale(1.03);\\r\\n  -moz-transform:scale(1.03);\\r\\n  -webkit-transform:scale(1.03);\\r\\n  -ms-transform:scale(1.03);\\r\\n  -o-transform:scale(1.03);\\r\\n}\\r\\n\\r\\n.button {\\r\\n  outline: none;\\r\\n  border: 2px solid midnightblue;\\r\\n  border-radius: 15px;\\r\\n  box-shadow: 3px 3px rgba(0,0,0,0.2);\\r\\n  padding: 8px 10px 8px 10px;\\r\\n  font-size: 24px;\\r\\n  font-weight: 500;\\r\\n  background: white;\\r\\n  cursor: pointer;\\r\\n}\\r\\n.button:hover{\\r\\n  border-color: goldenrod;\\r\\n  transform:scale(1.03);\\r\\n  -moz-transform:scale(1.03);\\r\\n  -webkit-transform:scale(1.03);\\r\\n  -ms-transform:scale(1.03);\\r\\n  -o-transform:scale(1.03);\\r\\n}\\r\\n\\r\\n.btn-plus:before{\\r\\n  content: \\\"+\\\";\\r\\n  font-size: 30px;\\r\\n  font-weight: bolder;\\r\\n  display: inline-block;\\r\\n  vertical-align: middle;\\r\\n  margin: 0 4px 4px 0;\\r\\n}\\r\\n\\r\\n.btn-plus:hover:before{\\r\\n  transform:scale(1.3);\\r\\n  -moz-transform:scale(1.3);\\r\\n  -webkit-transform:scale(1.3);\\r\\n  -ms-transform:scale(1.3);\\r\\n  -o-transform:scale(1.3);\\r\\n}\\r\\n\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/css/main.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/css/modal.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/css/modal.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// Imports\nvar ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\nexports = ___CSS_LOADER_API_IMPORT___(false);\n// Module\nexports.push([module.i, \".modal{\\r\\n  display: none;\\r\\n  position: fixed;\\r\\n  z-index: 999;\\r\\n  background-color: rgba(0,0,0,0.3);\\r\\n  width: 100%;\\r\\n  height: 100%;\\r\\n  left: 0;\\r\\n  top: 0;\\r\\n  overflow: hidden;\\r\\n  }\\r\\n\\r\\n.modal-content{\\r\\n  background: white;\\r\\n  max-width: 600px;\\r\\n  width: auto;\\r\\n  min-height: 200px;\\r\\n  border: 1px solid black;\\r\\n  border-radius: 6px;\\r\\n  box-shadow: 5px 10px rgba(0,0,0,0.2);\\r\\n  margin: 10% auto;\\r\\n  padding: 20px;\\r\\n}\\r\\n\\r\\n.exit{\\r\\n  width: 40px;\\r\\n  height: 40px;\\r\\n  padding: 8px;\\r\\n  position: relative;\\r\\n  display: block;\\r\\n  left: calc(96% - 10px);\\r\\n  color: white;\\r\\n  background-color: darkred;\\r\\n  text-align: center;\\r\\n  vertical-align: middle;\\r\\n  cursor: pointer;\\r\\n}\\r\\n.exit:hover{\\r\\n  background-color: red;\\r\\n}\\r\\n\\r\\n.show{ display: block; }\\r\\n\\r\\n.hide{ display: none; }\", \"\"]);\n// Exports\nmodule.exports = exports;\n\n\n//# sourceURL=webpack:///./src/css/modal.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -121,6 +132,40 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 
 /***/ }),
 
+/***/ "./src/css/main.css":
+/*!**************************!*\
+  !*** ./src/css/main.css ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n            var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./main.css */ \"./node_modules/css-loader/dist/cjs.js!./src/css/main.css\");\n\n            content = content.__esModule ? content.default : content;\n\n            if (typeof content === 'string') {\n              content = [[module.i, content, '']];\n            }\n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = api(content, options);\n\nvar exported = content.locals ? content.locals : {};\n\n\n\nmodule.exports = exported;\n\n//# sourceURL=webpack:///./src/css/main.css?");
+
+/***/ }),
+
+/***/ "./src/css/modal.css":
+/*!***************************!*\
+  !*** ./src/css/modal.css ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var api = __webpack_require__(/*! ../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n            var content = __webpack_require__(/*! !../../node_modules/css-loader/dist/cjs.js!./modal.css */ \"./node_modules/css-loader/dist/cjs.js!./src/css/modal.css\");\n\n            content = content.__esModule ? content.default : content;\n\n            if (typeof content === 'string') {\n              content = [[module.i, content, '']];\n            }\n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = api(content, options);\n\nvar exported = content.locals ? content.locals : {};\n\n\n\nmodule.exports = exported;\n\n//# sourceURL=webpack:///./src/css/modal.css?");
+
+/***/ }),
+
+/***/ "./src/home.js":
+/*!*********************!*\
+  !*** ./src/home.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst initHomePage = (() => {\n  let content;\n  let newProjectBtn;\n\n  const newProject = (funct) => newProjectBtn.addEventListener('click', funct);\n  const allTodos = (funct) => document.querySelectorAll('.button-todo').forEach((btn) => btn.addEventListener('click', funct));\n\n  const init = () => {\n    content = document.createElement('div');\n    content.setAttribute('id', 'main');\n    content.classList.add('container');\n\n    const header = document.createElement('h1');\n    header.innerHTML = 'Todo List';\n\n    newProjectBtn = document.createElement('button');\n    newProjectBtn.classList.add('button');\n    newProjectBtn.classList.add('btn-plus');\n    newProjectBtn.innerHTML = 'New Project';\n\n    content.appendChild(header);\n    content.appendChild(newProjectBtn);\n\n    return content;\n  };\n  return {\n    init, newProject, allTodos,\n  };\n})();\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (initHomePage);\n\n\n//# sourceURL=webpack:///./src/home.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -129,18 +174,19 @@ eval("\n\nvar isOldIE = function isOldIE() {\n  var memo;\n  return function mem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main.css */ \"./src/main.css\");\n/* harmony import */ var _main_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_main_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _models_todo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./models/todo */ \"./src/models/todo.js\");\n/* harmony import */ var _models_project__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./models/project */ \"./src/models/project.js\");\n\n\n\n\nfunction component() {\n  const element = document.createElement('div');\n\n  element.innerHTML = 'Test changed!';\n  element.classList.add('hello');\n  return element;\n}\n\ndocument.body.appendChild(component());\n\nconst project = Object(_models_project__WEBPACK_IMPORTED_MODULE_2__[\"default\"])('Project!');\nconsole.log(project.title);\n\nproject.addTodo(Object(_models_todo__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('title', 'description', 'due date', 5));\nproject.addTodo(Object(_models_todo__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('title 2', 'description', 'due date', 3));\nproject.addTodo(Object(_models_todo__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('title 3', 'description', 'due date', 2));\nproject.addTodo(Object(_models_todo__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('title 4', 'description', 'due date', 1));\n\nproject.removeTodo(project.getTodos()[0].id);\nconsole.log(project.getTodos()[1]);\nproject.getTodo(project.getTodos()[1].id).toggle();\nconsole.log(project.getTodos());\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./css/main.css */ \"./src/css/main.css\");\n/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_main_css__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _css_modal_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./css/modal.css */ \"./src/css/modal.css\");\n/* harmony import */ var _css_modal_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_modal_css__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./home */ \"./src/home.js\");\n/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal */ \"./src/modal.js\");\n/* harmony import */ var _models_todo__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./models/todo */ \"./src/models/todo.js\");\n/* harmony import */ var _models_project__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./models/project */ \"./src/models/project.js\");\n\n\n\n\n\n\n\n// Refacture later\nconst allProjects = [];\n\nconst NewTodo = (e) => {\n  const todoBtn = e.target;\n  const todoBtnID = parseInt(todoBtn.dataset.id, Math.radix);\n  const projectElem = todoBtn.parentElement;\n\n  const project = allProjects.find((proj) => proj.getID() === todoBtnID);\n  alert(`This todo will be assigned to the Project: ID: ${project.getID()} Title: ${project.title}`);\n};\n\n\nfunction NewProject() {\n  const title = _modal__WEBPACK_IMPORTED_MODULE_3__[\"default\"].getProjectTitleInput().toString();\n  const id = allProjects.length + 1;\n\n  const projectContent = document.createElement('div');\n  projectContent.setAttribute('id', id);\n  projectContent.classList.add('container');\n\n  const header = document.createElement('h3');\n  header.innerHTML = title;\n\n  const newTodoBtn = document.createElement('button');\n  newTodoBtn.classList.add('button-todo');\n  newTodoBtn.classList.add('btn-plus');\n  newTodoBtn.setAttribute('data-id', id.toString());\n  newTodoBtn.innerHTML = 'New Todo';\n\n\n  projectContent.appendChild(header);\n  projectContent.appendChild(newTodoBtn);\n  document.body.appendChild(projectContent);\n\n  const project = Object(_models_project__WEBPACK_IMPORTED_MODULE_5__[\"default\"])(id, title);\n  allProjects.push(project);\n  _home__WEBPACK_IMPORTED_MODULE_2__[\"default\"].allTodos(NewTodo);\n\n  _modal__WEBPACK_IMPORTED_MODULE_3__[\"default\"].hide();\n}\n\ndocument.body.appendChild(_home__WEBPACK_IMPORTED_MODULE_2__[\"default\"].init());\ndocument.body.appendChild(_modal__WEBPACK_IMPORTED_MODULE_3__[\"default\"].init());\n\n// Add eventlistner on click NewProject to New Project HTML Button\n_home__WEBPACK_IMPORTED_MODULE_2__[\"default\"].newProject(_modal__WEBPACK_IMPORTED_MODULE_3__[\"default\"].show);\n_modal__WEBPACK_IMPORTED_MODULE_3__[\"default\"].addProjectBtn(NewProject);\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/main.css":
+/***/ "./src/modal.js":
 /*!**********************!*\
-  !*** ./src/main.css ***!
+  !*** ./src/modal.js ***!
   \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("var api = __webpack_require__(/*! ../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n            var content = __webpack_require__(/*! !../node_modules/css-loader/dist/cjs.js!./main.css */ \"./node_modules/css-loader/dist/cjs.js!./src/main.css\");\n\n            content = content.__esModule ? content.default : content;\n\n            if (typeof content === 'string') {\n              content = [[module.i, content, '']];\n            }\n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = api(content, options);\n\nvar exported = content.locals ? content.locals : {};\n\n\n\nmodule.exports = exported;\n\n//# sourceURL=webpack:///./src/main.css?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nconst initModal = (() => {\n  let modal;\n  let exitBtn;\n  let newProjectDiv;\n  let projectTitleInput;\n  let projectAddBtn;\n\n  const getProjectTitleInput = () => projectTitleInput.value;\n  const addProjectBtn = (funct) => projectAddBtn.addEventListener('click', funct);\n  const show = () => {\n    modal.classList = 'modal show';\n    projectTitleInput.value = '';\n    projectTitleInput.focus();\n  };\n  const hide = () => { modal.classList = 'modal'; };\n\n  const init = () => {\n    modal = document.createElement('div');\n    modal.classList.add('modal');\n\n    const modalContent = document.createElement('div');\n    modalContent.classList.add('modal-content');\n\n    exitBtn = document.createElement('div');\n    exitBtn.classList.add('exit');\n    exitBtn.innerHTML = 'x';\n    exitBtn.addEventListener('click', hide);\n\n    newProjectDiv = document.createElement('div');\n    newProjectDiv.setAttribute('id', 'newProject');\n\n    const header = document.createElement('h2');\n    header.innerHTML = 'New Project';\n\n    const projectLabel = document.createElement('div');\n    projectLabel.classList = 'label center';\n\n    projectTitleInput = document.createElement('input');\n    projectTitleInput.setAttribute('type', 'text');\n    projectTitleInput.setAttribute('placeholder', 'eg. Daily Chores');\n    projectTitleInput.classList = 'center';\n\n    projectAddBtn = document.createElement('button');\n    projectAddBtn.classList.add('button');\n    projectAddBtn.classList.add('center');\n    projectAddBtn.innerHTML = 'Add Project';\n\n    modal.appendChild(modalContent);\n    modalContent.appendChild(exitBtn);\n    modalContent.appendChild(newProjectDiv);\n    newProjectDiv.appendChild(header);\n    newProjectDiv.appendChild(projectLabel);\n    projectLabel.appendChild(projectTitleInput);\n    newProjectDiv.appendChild(projectAddBtn);\n\n    return modal;\n  };\n  return {\n    init, addProjectBtn, show, hide, getProjectTitleInput,\n  };\n})();\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (initModal);\n\n\n//# sourceURL=webpack:///./src/modal.js?");
 
 /***/ }),
 
@@ -152,7 +198,7 @@ eval("var api = __webpack_require__(/*! ../node_modules/style-loader/dist/runtim
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconst Project = (title) => {\n  const todos = [];\n  const getTodos = () => todos;\n  const addTodo = (todo) => {\n    todos.push(todo);\n  };\n  const removeTodo = (todoId) => {\n    const index = todos.findIndex((todo) => todo.id === todoId);\n    todos.splice(index, 1);\n  };\n  const getTodo = (todoId) => todos.find((t) => t.id === todoId);\n\n  return {\n    title, getTodos, addTodo, removeTodo, getTodo,\n  };\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Project);\n\n\n//# sourceURL=webpack:///./src/models/project.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nconst Project = (id, title) => {\n  const todos = [];\n  const getID = () => id;\n  const getTodos = () => todos;\n  const addTodo = (todo) => {\n    todos.push(todo);\n  };\n  const removeTodo = (todoId) => {\n    const index = todos.findIndex((todo) => todo.id === todoId);\n    todos.splice(index, 1);\n  };\n  const getTodo = (todoId) => todos.find((t) => t.id === todoId);\n\n  return {\n    title, getTodos, addTodo, removeTodo, getTodo, getID,\n  };\n};\n\n// Function creates HTML related to Project object;\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (Project);\n\n\n//# sourceURL=webpack:///./src/models/project.js?");
 
 /***/ }),
 
