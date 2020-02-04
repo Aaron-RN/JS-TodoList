@@ -8,7 +8,7 @@ import Project from './models/project';
 // Refacture later
 const allProjects = [];
 
-// Home Page New Todo Button
+// Home Page New Todo Button Brings up Modal
 const NewTodo = (e) => {
   const todoBtn = e.target;
   const todoBtnID = parseInt(todoBtn.dataset.id, Math.radix);
@@ -19,10 +19,20 @@ const NewTodo = (e) => {
   initModal.show(e);
 };
 
+//Function for Modal New Todo Button
+function AddTodo() {
+  //Should also get project id
+  const title = initModal.getTodoTitleInput();
+  const desc = initModal.getTodoDescriptionInput();
+  const dueDate = initModal.getTodoDueDateInput();
+  const priority = initModal.getTodoPriorityInput();
+
+}
+
 // Function for Modal New Project Button
-function NewProject() {
-  const title = initModal.getProjectTitleInput().toString();
+function AddProject() {
   const id = allProjects.length + 1;
+  const title = initModal.getProjectTitleInput();
 
   const projectContent = document.createElement('div');
   projectContent.setAttribute('id', id);
@@ -54,4 +64,4 @@ document.body.appendChild(initModal.init());
 
 // Add eventlistner on click NewProject to New Project HTML Button
 initHomePage.newProject(initModal.show);
-initModal.addProjectBtn(NewProject);
+initModal.addProjectBtn(AddProject);

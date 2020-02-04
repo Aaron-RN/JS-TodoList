@@ -13,10 +13,10 @@ const initModal = (() => {
   let todoPriorityInput;
   let todoAddBtn;
   
-  const getProjectTitleInput = () => projectTitleInput.value;
+  const getProjectTitleInput = () => projectTitleInput.value.toString();
   const addProjectBtn = (funct) => projectAddBtn.addEventListener('click', funct);
-  const getTodoTitleInput = () => projectTitleInput.value;
-  const getTodoDescriptionInput = () => todoDescriptionInput.value;
+  const getTodoTitleInput = () => projectTitleInput.value.toString();
+  const getTodoDescriptionInput = () => todoDescriptionInput.value.toString();
   const getTodoDueDateInput = () => todoDueDateInput.value;
   const getTodoPriorityInput = () => todoPriorityInput.value;
   const addTodoBtn = (funct) => todoAddBtn.addEventListener('click', funct);
@@ -24,7 +24,8 @@ const initModal = (() => {
   const ElementShow = (element) => { element.classList = ''; };
   const hide = () => { modal.classList = 'modal'; };
   const show = (e) => {
-    const newObject = e.target.innerHTML;
+    const btn = e.target;
+    const newObject = btn.innerHTML;
     modal.classList = 'modal show';
     projectTitleInput.value = '';
     todoTitleInput.value = '';
@@ -36,8 +37,11 @@ const initModal = (() => {
       ElementHide(newTodoDiv);
       ElementShow(newProjectDiv);
     }
-    if (newObject === 'New Todo'){ElementHide(newProjectDiv); ElementShow(newTodoDiv); todoTitleInput.focus();}
-
+    if (newObject === 'New Todo'){
+      ElementHide(newProjectDiv);
+      ElementShow(newTodoDiv);
+      todoTitleInput.focus();
+    }
   };
 
   const init = () => {
@@ -65,6 +69,7 @@ const initModal = (() => {
     projectAddBtn = document.createElement('button');
     projectAddBtn.classList.add('button');
     projectAddBtn.classList.add('center');
+    projectAddBtn.setAttribute('data-button', 'New Project');
     projectAddBtn.innerHTML = 'Add Project';
 
     //  New Todo Related Elements
@@ -86,6 +91,7 @@ const initModal = (() => {
     todoAddBtn = document.createElement('button');
     todoAddBtn.classList.add('button');
     todoAddBtn.classList.add('center');
+    todoAddBtn.setAttribute('data-button', 'New Todo');
     todoAddBtn.innerHTML = 'Add Todo';
     
     modal.appendChild(modalContent);
@@ -107,7 +113,7 @@ const initModal = (() => {
     return modal;
   };
   return {
-    init, addProjectBtn, show, hide, getProjectTitleInput,
+    init, addProjectBtn, addTodoBtn, show, hide, getProjectTitleInput,
   };
 })();
 
