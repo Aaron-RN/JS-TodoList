@@ -8,6 +8,7 @@ import Project from './models/project';
 // Refacture later
 const allProjects = [];
 
+// Home Page New Todo Button
 const NewTodo = (e) => {
   const todoBtn = e.target;
   const todoBtnID = parseInt(todoBtn.dataset.id, Math.radix);
@@ -15,9 +16,10 @@ const NewTodo = (e) => {
 
   const project = allProjects.find((proj) => proj.getID() === todoBtnID);
   alert(`This todo will be assigned to the Project: ID: ${project.getID()} Title: ${project.title}`);
+  initModal.show('Todo');
 };
 
-
+// Function for Modal New Project Button
 function NewProject() {
   const title = initModal.getProjectTitleInput().toString();
   const id = allProjects.length + 1;
