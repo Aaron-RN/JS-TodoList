@@ -66,11 +66,7 @@ const initModal = (() => {
     const projectLabel = NewInputElement('text', projectTitleInput, 'eg. Daily Chores', 'Title');
     projectTitleInput = projectLabel.firstElementChild;
     
-    projectAddBtn = document.createElement('button');
-    projectAddBtn.classList.add('button');
-    projectAddBtn.classList.add('center');
-    projectAddBtn.setAttribute('data-button', 'New Project');
-    projectAddBtn.innerHTML = 'Add Project';
+    projectAddBtn = NewButtonElement('Add Project', 'New Project');
 
     //  New Todo Related Elements
     newTodoDiv = document.createElement('div');
@@ -88,11 +84,7 @@ const initModal = (() => {
     const todoPriorityLabel = NewInputElement('number', todoPriorityInput, 'eg. 1 for lowest and 3 for highest', 'Priority');
     todoPriorityInput = todoPriorityLabel.firstElementChild;
 
-    todoAddBtn = document.createElement('button');
-    todoAddBtn.classList.add('button');
-    todoAddBtn.classList.add('center');
-    todoAddBtn.setAttribute('data-button', 'New Todo');
-    todoAddBtn.innerHTML = 'Add Todo';
+    todoAddBtn = NewButtonElement('Add Todo', 'New Todo');
     
     modal.appendChild(modalContent);
     modalContent.appendChild(exitBtn);
@@ -118,6 +110,7 @@ const initModal = (() => {
   };
 })();
 
+// Generates two new elements and returns the parent element
 function NewInputElement(type, inputElement, placeholder = "", innerhtml){
   const todoTitleLabel = document.createElement('div');
   todoTitleLabel.classList = 'label center';
@@ -132,6 +125,18 @@ function NewInputElement(type, inputElement, placeholder = "", innerhtml){
   todoTitleLabel.appendChild(inputElement);
   
   return todoTitleLabel;
+}
+
+// Generates a new button element with possible text within variable
+// and a value for data-button attribute
+function NewButtonElement(text, dataValue){
+  const btn = document.createElement('button');
+  btn.classList.add('button');
+  btn.classList.add('center');
+  btn.setAttribute('data-button', dataValue);
+  btn.innerHTML = text; 
+  
+  return btn;
 }
 
 export default initModal;

@@ -1,3 +1,5 @@
+const allProjects = [];
+
 const Project = (id, title) => {
   let projElement;
   const setProjElement = (elem) => projElement = elem;
@@ -20,5 +22,29 @@ const Project = (id, title) => {
 };
 
 // Function creates HTML related to Project object;
+function NewProjectHTML(id, title){
+  const projectContent = document.createElement('div');
+  projectContent.setAttribute('id', id);
+  projectContent.classList.add('container');
 
-export default Project;
+  const projectTodoContent = document.createElement('div');
+  
+  const header = document.createElement('h3');
+  header.innerHTML = title;
+
+  const newTodoBtn = document.createElement('button');
+  newTodoBtn.classList.add('button-todo');
+  newTodoBtn.classList.add('btn-plus');
+  newTodoBtn.setAttribute('data-id', id.toString());
+  newTodoBtn.innerHTML = 'New Todo';
+
+
+  projectContent.appendChild(header);
+  projectContent.appendChild(projectTodoContent);
+  projectContent.appendChild(newTodoBtn);
+  document.body.appendChild(projectContent);
+  
+  return projectTodoContent;
+}
+
+export {Project, NewProjectHTML, allProjects};
