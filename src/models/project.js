@@ -1,4 +1,7 @@
 const Project = (id, title) => {
+  let projElement;
+  const setProjElement = (elem) => projElement = elem;
+  const getProjElement = () => projElement;
   const todos = [];
   const getID = () => id;
   const getTodos = () => todos;
@@ -12,7 +15,7 @@ const Project = (id, title) => {
   const getTodo = (todoId) => todos.find((t) => t.id === todoId);
 
   return {
-    title, getTodos, addTodo, removeTodo, getTodo, getID,
+    title, getTodos, addTodo, removeTodo, getTodo, getID, setProjElement, getProjElement,
   };
 };
 

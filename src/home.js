@@ -1,7 +1,10 @@
 const initHomePage = (() => {
   let content;
   let newProjectBtn;
+  let selectedProject;
 
+  const setSelectedProject = (proj) => selectedProject = proj;
+  const getSelectedProject = () => selectedProject;
   const newProject = (funct) => newProjectBtn.addEventListener('click', funct);
   const allTodos = (funct) => document.querySelectorAll('.button-todo').forEach((btn) => btn.addEventListener('click', funct));
 
@@ -24,7 +27,7 @@ const initHomePage = (() => {
     return content;
   };
   return {
-    init, newProject, allTodos,
+    init, newProject, allTodos, setSelectedProject, getSelectedProject,
   };
 })();
 

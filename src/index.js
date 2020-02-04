@@ -12,10 +12,10 @@ const allProjects = [];
 const NewTodo = (e) => {
   const todoBtn = e.target;
   const todoBtnID = parseInt(todoBtn.dataset.id, Math.radix);
-  const projectElem = todoBtn.parentElement;
 
   const project = allProjects.find((proj) => proj.getID() === todoBtnID);
-  alert(`This todo will be assigned to the Project: ID: ${project.getID()} Title: ${project.title}`);
+  
+  initHomePage.setSelectedProject(project);
   initModal.show(e);
 };
 
@@ -28,6 +28,8 @@ function AddProject() {
   projectContent.setAttribute('id', id);
   projectContent.classList.add('container');
 
+  const projectTodoContent = document.createElement('div');
+  
   const header = document.createElement('h3');
   header.innerHTML = title;
 
@@ -39,24 +41,47 @@ function AddProject() {
 
 
   projectContent.appendChild(header);
+  projectContent.appendChild(projectTodoContent);
   projectContent.appendChild(newTodoBtn);
   document.body.appendChild(projectContent);
 
   const project = Project(id, title);
+  project.setProjElement(projectTodoContent);
   allProjects.push(project);
+  
   initHomePage.allTodos(NewTodo);
-
   initModal.hide();
 }
 
 //Function for Modal New Todo Button
 function AddTodo() {
-  //Should also get project id
+  const project = initHomePage.getSelectedProject();
+  const projectDiv = project.getProjElement();
   const title = initModal.getTodoTitleInput();
   const desc = initModal.getTodoDescriptionInput();
   const dueDate = initModal.getTodoDueDateInput();
   const priority = initModal.getTodoPriorityInput();
+  
+  const todo = Todo(title, desc, dueDate, priority);
+  project.addTodo(todo);
+  
+  const todoContent = document.createElement('div');
+  todoContent.setAttribute('id', todo.id);
+  todoContent.classList.add('todo');
+  const todoChecked = document.createElement('input');
+  todoChecked.classList.add('inline-block');
+  todoChecked.setAttribute('type', 'checkbox');
+  const todoTitle = document.createElement('div');
+  todoTitle.innerHTML = todo.title;
+  const todoDueDate = document.createElement('div');
+  todoDueDate.innerHTML = todo.dueDate;
 
+  todoContent.appendChild(todoChecked);
+  todoContent.appendChild(todoTitle);
+  todoContent.appendChild(todoDueDate);
+  projectDiv.appendChild(todoContent);
+
+  initModal.hide();
 }
 
 document.body.appendChild(initHomePage.init());

@@ -15,7 +15,7 @@ const initModal = (() => {
   
   const getProjectTitleInput = () => projectTitleInput.value.toString();
   const addProjectBtn = (funct) => projectAddBtn.addEventListener('click', funct);
-  const getTodoTitleInput = () => projectTitleInput.value.toString();
+  const getTodoTitleInput = () => todoTitleInput.value.toString();
   const getTodoDescriptionInput = () => todoDescriptionInput.value.toString();
   const getTodoDueDateInput = () => todoDueDateInput.value;
   const getTodoPriorityInput = () => todoPriorityInput.value;
@@ -114,6 +114,7 @@ const initModal = (() => {
   };
   return {
     init, addProjectBtn, addTodoBtn, show, hide, getProjectTitleInput,
+    getTodoTitleInput, getTodoDescriptionInput, getTodoDueDateInput, getTodoPriorityInput,
   };
 })();
 
