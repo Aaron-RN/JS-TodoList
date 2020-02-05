@@ -34,6 +34,7 @@ class Home {
     this.modal.addTodoBtn(() => {
       const { todo, projectId } = this.modal.getNewTodo();
       this.projectList.getProject(projectId).addTodo(todo);
+      this.projectList.save();
       this.renderNewTodo(todo, projectId);
       this.modal.hide();
     });

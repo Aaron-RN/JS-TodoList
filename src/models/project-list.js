@@ -3,18 +3,12 @@ import Todo from './todo';
 
 class ProjectList {
   constructor() {
-    // For testing only
-    // Replace this with loading projects from local storage
-    const project1 = new Project('Project 1');
-    project1.addTodo(new Todo('Todo 1', 'Description 1', '2020/02/02', 3));
-    project1.addTodo(new Todo('Todo 2', 'Description 2', '2020/02/02', 3));
-    const project2 = new Project('Project 1');
-    project2.addTodo(new Todo('Todo 3', 'Description 3', '2020/02/02', 3));
-    project2.addTodo(new Todo('Todo 4', 'Description 4', '2020/02/02', 3));
-    this.projects = [
-      project1,
-      project2,
-    ];
+    const storedProjects = localStorage.getItem('projects')
+    if (storedProjects) {
+      this.projects = JSON.parse(storedProjects).map((storedProject) => Object.assign(new Project(), storedProject));
+    } else {
+      this.projects = [];
+    }
   }
 
   getProject(projectId) {
@@ -23,13 +17,18 @@ class ProjectList {
 
   addProject(project) {
     this.projects.push(project);
+    this.save();
   }
 
   removeProject(projectId) {
     const index = this.project.findIndex((project) => project.id === projectId);
     this.project.splice(index, 1);
+    this.save();
   }
 
+  save() {
+    localStorage.setItem('projects', JSON.stringify(this.projects));
+  }
 }
 
 export default ProjectList;
