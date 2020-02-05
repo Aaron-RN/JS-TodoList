@@ -47,8 +47,6 @@ const modal = (() => {
   let todoPriorityInput;
   let todoAddBtn;
 
-  const getProjectId = () => todoProjectIdInput.value;
-  const setProjectId = (projectId) => { todoProjectIdInput.value = projectId; };
   const getProjectTitleInput = () => projectTitleInput.value.toString();
   const addProjectBtn = (funct) => projectAddBtn.addEventListener('click', funct);
   const getTodoTitleInput = () => todoTitleInput.value.toString();
@@ -76,7 +74,7 @@ const modal = (() => {
   };
 
   const showNewTodo = (projectId) => {
-    setProjectId(projectId);
+    todoProjectIdInput.value = projectId;
     show();
     todoTitleInput.focus();
     ElementHide(newProjectDiv);
@@ -94,7 +92,7 @@ const modal = (() => {
     const dueDate = getTodoDueDateInput();
     const priority = getTodoPriorityInput();
 
-    return { projectId: getProjectId(), todo: new Todo(title, desc, dueDate, priority) };
+    return { projectId: todoProjectIdInput.value, todo: new Todo(title, desc, dueDate, priority) };
   };
 
   const init = () => {
@@ -166,8 +164,6 @@ const modal = (() => {
     showNewProject,
     showNewTodo,
     hide,
-    getProjectId,
-    setProjectId,
     getNewProject,
     getNewTodo,
   };

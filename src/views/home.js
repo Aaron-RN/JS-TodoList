@@ -21,35 +21,43 @@ class Home {
     this.newProjectBtn.innerHTML = 'New Project';
     this.newProjectBtn.addEventListener('click', this.modal.showNewProject);
 
+    this.content.appendChild(header);
+    this.content.appendChild(this.newProjectBtn);
+
     this.modal.addProjectBtn(() => {
       const project = this.modal.getNewProject();
-      const projectView = new ProjectView(project);
-      projectView.newTodoBtn.addEventListener('click', (e) => {
-        const projectId = e.target.parentNode.id;
-        this.modal.showNewTodo(projectId);
-      });
-
       this.projectList.addProject(project);
+      this.renderNewProject(project);
       this.modal.hide();
-      projectView.render();
     });
 
     this.modal.addTodoBtn(() => {
-      const { projectId, todo } = this.modal.getNewTodo();
-      const todoView = new TodoView(todo, projectId);
-
+      const { todo, projectId } = this.modal.getNewTodo();
       this.projectList.getProject(projectId).addTodo(todo);
+      this.renderNewTodo(todo, projectId);
       this.modal.hide();
-      todoView.render();
     });
-
-    this.content.appendChild(header);
-    this.content.appendChild(this.newProjectBtn);
   }
+
+  renderNewTodo(todo, projectId) {
+    const todoView = new TodoView(todo, projectId);
+    todoView.render();
+  }
+
+  renderNewProject(project) {
+    const projectView = new ProjectView(project);
+    projectView.newTodoBtn.addEventListener('click', (e) => {
+      const projectId = e.target.parentNode.id;
+      this.modal.showNewTodo(projectId);
+    });
+    projectView.render();
+    project.todos.forEach((todo) => { this.renderNewTodo(todo, project.id) });
+  };
 
   render() {
     document.body.appendChild(this.modalDiv);
     document.body.appendChild(this.content);
+    this.projectList.projects.forEach((project) => { this.renderNewProject(project); })
   }
 }
 
