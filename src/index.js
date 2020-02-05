@@ -1,11 +1,7 @@
-import './main.css';
+import './css/main.css';
+import Home from './views/home';
+import ProjectList from './models/project-list';
 
-function component() {
-  const element = document.createElement('div');
+const home = new Home(new ProjectList());
 
-  element.innerHTML = 'Test';
-  element.classList.add('hello');
-  return element;
-}
-
-document.body.appendChild(component());
+home.render();

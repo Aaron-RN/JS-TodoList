@@ -1,0 +1,72 @@
+.todos {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.todo {
+  display: flex;
+  align-items: baseline;
+  border: 2px solid lightgrey;
+  border-radius: 15px;
+  box-shadow: 3px 3px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.todo-title {
+  font-size: 20px;
+}
+
+.todo-description {
+  font-size: 15px;
+}
+
+.todo input {
+  margin: 10px;
+  font-size: 20px;
+}
+
+.todo-card {
+  flex-grow: 1;
+}
+
+.todo .striked {
+  text-decoration: line-through;
+}
+
+.priority {
+  margin: 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  padding: 5px;
+}
+.priority-1 {
+  background: green;
+}
+
+.priority-1::before {
+  content: 'low';
+}
+
+.priority-2 {
+  background: orange;
+}
+
+.priority-2::before {
+  content: 'medium';
+}
+
+.priority-3 {
+  background: red;
+}
+
+.priority-3::before {
+  content: 'high';
+}
+
+.due-date {
+  font-style: italic;
+  color: #888;
+}
