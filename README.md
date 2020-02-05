@@ -14,6 +14,8 @@ Live Githack Link: https://raw.githack.com/Aaron-RN/JS-TodoList/development/dist
 - JavaScript
 - Webpack (npm)
 
+## Prerequisites
+- [date-fns](https://github.com/date-fns/date-fns)
 
 ## Authors
 
