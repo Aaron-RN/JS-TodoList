@@ -74,6 +74,11 @@ class Home {
       const projectId = e.target.parentNode.id;
       this.modal.showNewTodo(projectId);
     });
+    projectView.deleteProjectBtn.addEventListener('click', (e) => {
+      const projectId = e.target.parentNode.id;
+      projectView.content.remove();
+      this.projectList.removeProject(projectId);
+    });
     projectView.render();
     project.todos.forEach((todo) => { this.renderNewTodo(todo, project.id); });
   }

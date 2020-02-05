@@ -26,8 +26,8 @@ class ProjectList {
   }
 
   removeProject(projectId) {
-    const index = this.project.findIndex((project) => project.id === projectId);
-    this.project.splice(index, 1);
+    const index = this.projects.findIndex((project) => project.id === projectId);
+    this.projects.splice(index, 1);
     this.save();
   }
 

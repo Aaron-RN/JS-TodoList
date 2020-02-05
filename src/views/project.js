@@ -18,9 +18,15 @@ class ProjectView {
     this.newTodoBtn.setAttribute('data-id', project.id.toString());
     this.newTodoBtn.innerHTML = 'New Todo';
 
+    this.deleteProjectBtn = document.createElement('button');
+    this.deleteProjectBtn.classList.add('delete-button');
+    this.deleteProjectBtn.innerHTML = '&times;';
+
+    this.content.appendChild(this.deleteProjectBtn);
     this.content.appendChild(header);
     this.content.appendChild(projectTodoContent);
     this.content.appendChild(this.newTodoBtn);
+
   }
 
   render() {

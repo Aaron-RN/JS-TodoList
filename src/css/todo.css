@@ -27,19 +27,6 @@
   font-size: 20px;
 }
 
-.todo button {
-  font-size: 20px;
-  font-weight: bold;
-  border: none;
-  border-radius: 50px;
-  margin: 10px;
-}
-
-.todo button:hover {
-  color: white;
-  background: red;
-}
-
 .todo-card {
   flex-grow: 1;
 }
