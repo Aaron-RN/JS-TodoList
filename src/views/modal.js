@@ -1,7 +1,7 @@
 import '../css/modal.css';
+import { format } from 'date-fns';
 import Project from '../models/project';
 import Todo from '../models/todo';
-import { format } from 'date-fns'
 
 // Generates two new elements and returns the parent element
 function NewInputElement(type, innerhtml, placeholder = '') {
@@ -94,7 +94,7 @@ const modal = (() => {
     todoDescriptionInput.value = '';
     todoDueDateInput.value = format(new Date(), 'yyyy-MM-dd');
     todoPriorityInput.value = 1;
-    todoPrioritySpan.className = `priority priority-1`;
+    todoPrioritySpan.className = 'priority priority-1';
   };
 
   const showNewProject = () => {
@@ -123,12 +123,12 @@ const modal = (() => {
     let errorsFound = false;
     const title = getTodoTitleInput();
     const desc = getTodoDescriptionInput();
-    let dueDate = getTodoDueDateInput();
+    const dueDate = getTodoDueDateInput();
     const priority = getTodoPriorityInput();
 
     if (!title) { addValidationError('Todo must have a title!'); errorsFound = true; }
     if (errorsFound) { return false; }
-    return { projectId: todoProjectIdInput.value, todo: new Todo(title, desc, dueDate.replace(/-/g, '\/'), priority) };
+    return { projectId: todoProjectIdInput.value, todo: new Todo(title, desc, dueDate.replace(/-/g, '/'), priority) };
   };
 
   const init = () => {

@@ -27,7 +27,7 @@ class Home {
 
     this.content.appendChild(header);
     this.content.appendChild(this.newProjectBtn);
-    this.content.appendChild(projectsDiv)
+    this.content.appendChild(projectsDiv);
 
     this.modal.addProjectBtn(() => {
       const project = this.modal.getNewProject();

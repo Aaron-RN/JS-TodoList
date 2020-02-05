@@ -1,5 +1,5 @@
 import '../css/todo.css';
-import { format } from 'date-fns'
+import { format } from 'date-fns';
 
 class TodoView {
   constructor(todo, projectId) {
@@ -13,7 +13,7 @@ class TodoView {
     this.todoChecked.checked = todo.checked;
     const todoCard = document.createElement('div');
     todoCard.className = 'todo-card';
-    if(todo.checked) {
+    if (todo.checked) {
       todoCard.classList.add('striked');
     }
     const todoTitle = document.createElement('p');
@@ -32,7 +32,7 @@ class TodoView {
 
     const todoDueDate = document.createElement('div');
     todoDueDate.classList.add('due-date');
-    todoDueDate.innerHTML = format(new Date(todo.dueDate), "MMM do");
+    todoDueDate.innerHTML = format(new Date(todo.dueDate), 'MMM do');
 
     todoCard.appendChild(todoTitle);
     todoCard.appendChild(todoDescription);
@@ -52,7 +52,7 @@ class TodoView {
     this.todoChecked.addEventListener('click', () => {
       todoCard.classList.toggle('striked');
     });
-  };
+  }
 
   render() {
     const projectDiv = document.querySelector(`#${this.projectId} .todos`);

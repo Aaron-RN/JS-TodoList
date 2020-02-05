@@ -26,7 +26,6 @@ class ProjectView {
     this.content.appendChild(header);
     this.content.appendChild(projectTodoContent);
     this.content.appendChild(this.newTodoBtn);
-
   }
 
   render() {
