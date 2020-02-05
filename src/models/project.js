@@ -1,50 +1,32 @@
-const allProjects = [];
+import Event from './event';
 
-const Project = (id, title) => {
-  let projElement;
-  const setProjElement = (elem) => projElement = elem;
-  const getProjElement = () => projElement;
-  const todos = [];
-  const getID = () => id;
-  const getTodos = () => todos;
-  const addTodo = (todo) => {
-    todos.push(todo);
-  };
-  const removeTodo = (todoId) => {
-    const index = todos.findIndex((todo) => todo.id === todoId);
-    todos.splice(index, 1);
-  };
-  const getTodo = (todoId) => todos.find((t) => t.id === todoId);
+class Project {
+  constructor(title) {
+    this.id = `project_${Math.random().toString(36).substr(2, 9)}`;
+    this.title = title;
+    this.todos = [];
+    this.addTodoEvent = new Event(this);
+    this.removeTodoEvent = new Event(this);
+    this.toggleTodoEvent = new Event(this);
+  }
 
-  return {
-    title, getTodos, addTodo, removeTodo, getTodo, getID, setProjElement, getProjElement,
-  };
-};
+  addTodo(todo) {
+    this.todos.push(todo);
+    this.addTodoEvent.notify(todo);
+  }
 
-// Function creates HTML related to Project object;
-function NewProjectHTML(id, title){
-  const projectContent = document.createElement('div');
-  projectContent.setAttribute('id', id);
-  projectContent.classList.add('container');
+  removeTodo(todoId) {
+    const index = this.todos.findIndex((todo) => todo.id === todoId);
+    const removedTodo = this.todos.splice(index, 1)[0];
+    this.removeTodoEvent.notify(removedTodo);
+  }
 
-  const projectTodoContent = document.createElement('div');
-  
-  const header = document.createElement('h3');
-  header.innerHTML = title;
-
-  const newTodoBtn = document.createElement('button');
-  newTodoBtn.classList.add('button-todo');
-  newTodoBtn.classList.add('btn-plus');
-  newTodoBtn.setAttribute('data-id', id.toString());
-  newTodoBtn.innerHTML = 'New Todo';
-
-
-  projectContent.appendChild(header);
-  projectContent.appendChild(projectTodoContent);
-  projectContent.appendChild(newTodoBtn);
-  document.body.appendChild(projectContent);
-  
-  return projectTodoContent;
+  toggleTodo(todoId) {
+    const index = this.todos.findIndex((todo) => todo.id === todoId);
+    const toggledTodo = this.todos.splice(index, 1)[0];
+    toggledTodo.toggle();
+    this.toggleTodoEvent.notify(toggledTodo);
+  }
 }
 
-export {Project, NewProjectHTML, allProjects};
+export default Project;
