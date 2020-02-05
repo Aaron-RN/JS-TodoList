@@ -1,5 +1,7 @@
 import '../css/todo.css';
+/* eslint-disable import/no-unresolved */
 import { format } from 'date-fns';
+/* eslint-enable import/no-unresolved */
 
 class TodoView {
   constructor(todo, projectId) {

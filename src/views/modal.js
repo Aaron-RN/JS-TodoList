@@ -1,5 +1,7 @@
 import '../css/modal.css';
+/* eslint-disable import/no-unresolved */
 import { format } from 'date-fns';
+/* eslint-enable import/no-unresolved */
 import Project from '../models/project';
 import Todo from '../models/todo';
 
