@@ -5,7 +5,12 @@ class ProjectList {
   constructor() {
     const storedProjects = localStorage.getItem('projects')
     if (storedProjects) {
-      this.projects = JSON.parse(storedProjects).map((storedProject) => Object.assign(new Project(), storedProject));
+      this.projects = JSON.parse(storedProjects).map((storedProject) => {
+        const project = Object.assign(new Project(), storedProject);
+        project.todos = project.todos.map((storedTodo) => Object.assign(new Todo(), storedTodo));
+
+        return project;
+      });
     } else {
       this.projects = [];
     }

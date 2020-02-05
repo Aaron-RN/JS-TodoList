@@ -42,6 +42,20 @@ class Home {
 
   renderNewTodo(todo, projectId) {
     const todoView = new TodoView(todo, projectId);
+
+    todoView.todoChecked.addEventListener('click', () => {
+      const project = this.projectList.getProject(projectId);
+      project.toggleTodo(todo.id);
+      this.projectList.save();
+    });
+
+    todoView.deleteTodoBtn.addEventListener('click', () => {
+      const project = this.projectList.getProject(projectId);
+      todoView.todoContent.remove();
+      project.removeTodo(todo.id);
+      this.projectList.save();
+    });
+
     todoView.render();
   }
 
