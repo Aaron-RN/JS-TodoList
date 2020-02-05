@@ -1,14 +1,16 @@
-const Todo = (title, description, dueDate, priority) => {
-  const id = Math.random().toString(36).substr(2, 9);
-  let checked = false;
-  const getChecked = () => checked;
-  const toggle = () => {
-    checked = !checked;
-  };
+class Todo {
+  constructor(title, description, dueDate, priority) {
+    this.id = `todo_${Math.random().toString(36).substr(2, 9)}`;
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.checked = false;
+  }
 
-  return {
-    id, title, description, dueDate, priority, getChecked, toggle,
-  };
-};
+  toggle() {
+    this.checked = !this.checked;
+  }
+}
 
 export default Todo;

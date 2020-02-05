@@ -1,5 +1,6 @@
 # JS-TodoList
-Todo lists are a staple in beginning webdev tutorials because they can be very simple. There is, however, a lot of room for improvement and many features that can be added.
+Todo lists are a staple in beginning webdev tutorials because they can be very simple. 
+This Todo List enables a user to create and subcategorize different tasks.
 
 ![screenshot](./screenshot.png)
 
