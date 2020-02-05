@@ -8,10 +8,26 @@ function NewInputElement(type, innerhtml, placeholder = '') {
   todoTitleLabel.classList = 'label center';
   todoTitleLabel.innerHTML = innerhtml;
 
-  const inputElement = document.createElement('input');
-  inputElement.setAttribute('type', type);
-  if (type === 'text') { inputElement.setAttribute('placeholder', placeholder); }
-  if (type === 'number') { inputElement.setAttribute('min', 1); inputElement.setAttribute('max', 3); }
+  let inputElement;
+  if (type === 'textarea') {
+    inputElement = document.createElement('textarea');
+    inputElement.setAttribute('rows', '4');
+    inputElement.setAttribute('cols', '50');
+    inputElement.setAttribute('maxlength', '100');
+  } else {
+    inputElement = document.createElement('input');
+    inputElement.setAttribute('type', type);
+  }
+  if (type === 'text') {
+    inputElement.setAttribute('placeholder', placeholder);
+    inputElement.setAttribute('maxlength', '25');
+  }
+  if (type === 'number' || type === 'range') {
+    inputElement.setAttribute('defaultValue', '1');
+    inputElement.setAttribute('value', '1');
+    inputElement.setAttribute('min', '1');
+    inputElement.setAttribute('max', '3');
+  }
   inputElement.classList = 'center';
 
   todoTitleLabel.appendChild(inputElement);
@@ -33,6 +49,8 @@ function NewButtonElement(text, dataValue) {
 
 const modal = (() => {
   let modalDiv;
+  let modalErrors;
+  let validErrors = [];
   let exitBtn;
   // Project related elements
   let newProjectDiv;
@@ -47,6 +65,15 @@ const modal = (() => {
   let todoPriorityInput;
   let todoAddBtn;
 
+  const addValidationError = (error) => {
+    modalErrors.innerHTML = '';
+    if (!validErrors.find((err) => err === error)) { validErrors.push(error); }
+    validErrors.forEach((err) => {
+      const p = document.createElement('div');
+      p.innerHTML = err;
+      modalErrors.appendChild(p);
+    });
+  };
   const getProjectTitleInput = () => projectTitleInput.value.toString();
   const addProjectBtn = (funct) => projectAddBtn.addEventListener('click', funct);
   const getTodoTitleInput = () => todoTitleInput.value.toString();
@@ -59,6 +86,8 @@ const modal = (() => {
   const hide = () => { modalDiv.classList = 'modal'; };
   const show = () => {
     modalDiv.classList = 'modal show';
+    validErrors = [];
+    modalErrors.innerHTML = '';
     projectTitleInput.value = '';
     todoTitleInput.value = '';
     todoDescriptionInput.value = '';
@@ -83,15 +112,24 @@ const modal = (() => {
 
   const getNewProject = () => {
     const title = getProjectTitleInput();
-    return new Project(title);
+    if (title) { return new Project(title); }
+    addValidationError('Project must have a title!');
+    return false;
   };
 
   const getNewTodo = () => {
+    let errorsFound = false;
     const title = getTodoTitleInput();
     const desc = getTodoDescriptionInput();
-    const dueDate = getTodoDueDateInput();
+    let dueDate = getTodoDueDateInput();
     const priority = getTodoPriorityInput();
 
+    if (!title) { addValidationError('Todo must have a title!'); errorsFound = true; }
+    if (!dueDate) {
+      const today = new Date();
+      dueDate = today.getDate();
+    }
+    if (errorsFound) { return false; }
     return { projectId: todoProjectIdInput.value, todo: new Todo(title, desc, dueDate, priority) };
   };
 
@@ -101,6 +139,9 @@ const modal = (() => {
 
     const modalContent = document.createElement('div');
     modalContent.classList.add('modal-content');
+
+    modalErrors = document.createElement('div');
+    modalErrors.classList.add('modal-errors');
 
     exitBtn = document.createElement('div');
     exitBtn.classList.add('exit');
@@ -130,17 +171,18 @@ const modal = (() => {
     todoProjectIdInput.type = 'hidden';
     const todoTitleLabel = NewInputElement('text', 'Title', 'eg. Wash car');
     todoTitleInput = todoTitleLabel.firstElementChild;
-    const todoDescriptionLabel = NewInputElement('text', 'Description', 'eg. Wash the car really good');
+    const todoDescriptionLabel = NewInputElement('textarea', 'Description', 'eg. Wash the car really good');
     todoDescriptionInput = todoDescriptionLabel.firstElementChild;
     const todoDueDateLabel = NewInputElement('date', 'Due Date');
     todoDueDateInput = todoDueDateLabel.firstElementChild;
-    const todoPriorityLabel = NewInputElement('number', 'Priority', 'eg. 1 for lowest and 3 for highest');
+    const todoPriorityLabel = NewInputElement('range', 'Priority', '1 for lowest and 3 for highest');
     todoPriorityInput = todoPriorityLabel.firstElementChild;
 
     todoAddBtn = NewButtonElement('Add Todo', 'New Todo');
 
     modalDiv.appendChild(modalContent);
     modalContent.appendChild(exitBtn);
+    modalContent.appendChild(modalErrors);
     // Append Project Elements
     modalContent.appendChild(newProjectDiv);
     newProjectDiv.appendChild(header);
@@ -159,6 +201,7 @@ const modal = (() => {
   };
   return {
     init,
+    addValidationError,
     addProjectBtn,
     addTodoBtn,
     showNewProject,

@@ -3,7 +3,7 @@ import Todo from './todo';
 
 class ProjectList {
   constructor() {
-    const storedProjects = localStorage.getItem('projects')
+    const storedProjects = localStorage.getItem('projects');
     if (storedProjects) {
       this.projects = JSON.parse(storedProjects).map((storedProject) => {
         const project = Object.assign(new Project(), storedProject);

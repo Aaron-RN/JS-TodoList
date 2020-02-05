@@ -33,7 +33,7 @@ class TodoView {
     this.todoContent.addEventListener('click', () => {
       todoDescription.classList.toggle('hide');
     });
-  };
+  }
 
   render() {
     const projectDiv = document.querySelector(`#${this.projectId}`);

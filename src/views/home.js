@@ -26,6 +26,8 @@ class Home {
 
     this.modal.addProjectBtn(() => {
       const project = this.modal.getNewProject();
+      if (!project) { return; }
+
       this.projectList.addProject(project);
       this.renderNewProject(project);
       this.modal.hide();
@@ -33,6 +35,8 @@ class Home {
 
     this.modal.addTodoBtn(() => {
       const { todo, projectId } = this.modal.getNewTodo();
+      if (!todo || !projectId) { return; }
+
       this.projectList.getProject(projectId).addTodo(todo);
       this.projectList.save();
       this.renderNewTodo(todo, projectId);
@@ -66,13 +70,13 @@ class Home {
       this.modal.showNewTodo(projectId);
     });
     projectView.render();
-    project.todos.forEach((todo) => { this.renderNewTodo(todo, project.id) });
-  };
+    project.todos.forEach((todo) => { this.renderNewTodo(todo, project.id); });
+  }
 
   render() {
     document.body.appendChild(this.modalDiv);
     document.body.appendChild(this.content);
-    this.projectList.projects.forEach((project) => { this.renderNewProject(project); })
+    this.projectList.projects.forEach((project) => { this.renderNewProject(project); });
   }
 }
 
