@@ -1,6 +1,6 @@
 class Todo {
   constructor(title, description, dueDate, priority) {
-    this.id = 'todo_' + Math.random().toString(36).substr(2, 9);
+    this.id = `todo_${Math.random().toString(36).substr(2, 9)}`;
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;

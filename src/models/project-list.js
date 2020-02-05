@@ -1,10 +1,6 @@
-import Event from './event';
-
 class ProjectList {
   constructor() {
     this.projects = [];
-    this.addProjectEvent = new Event(this);
-    this.removeProjectEvent = new Event(this);
   }
 
   getProject(projectId) {
@@ -13,16 +9,12 @@ class ProjectList {
 
   addProject(project) {
     this.projects.push(project);
-    this.addProjectEvent.notify(project);
   }
 
   removeProject(projectId) {
     const index = this.project.findIndex((project) => project.id === projectId);
-    const removedProject = this.project.splice(index, 1)[0];
-    this.removeProjectEvent.notify(removedProject);
+    this.project.splice(index, 1);
   }
 }
 
-const projectList = new ProjectList();
-
-export default projectList;
+export default ProjectList;

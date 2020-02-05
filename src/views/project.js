@@ -1,27 +1,27 @@
-// Function creates HTML related to Project object;
-function NewProjectHTML(project) {
-  const projectContent = document.createElement('div');
-  projectContent.setAttribute('id', project.id);
-  projectContent.classList.add('project');
+class ProjectView {
+  constructor(project) {
+    this.content = document.createElement('div');
+    this.content.id = project.id;
+    this.content.classList.add('project');
 
-  const projectTodoContent = document.createElement('div');
+    const projectTodoContent = document.createElement('div');
+    const header = document.createElement('h3');
+    header.innerHTML = project.title;
 
-  const header = document.createElement('h3');
-  header.innerHTML = project.title;
+    this.newTodoBtn = document.createElement('button');
+    this.newTodoBtn.classList.add('button-todo');
+    this.newTodoBtn.classList.add('btn-plus');
+    this.newTodoBtn.setAttribute('data-id', project.id.toString());
+    this.newTodoBtn.innerHTML = 'New Todo';
 
-  const newTodoBtn = document.createElement('button');
-  newTodoBtn.classList.add('button-todo');
-  newTodoBtn.classList.add('btn-plus');
-  newTodoBtn.setAttribute('data-id', project.id.toString());
-  newTodoBtn.innerHTML = 'New Todo';
+    this.content.appendChild(header);
+    this.content.appendChild(projectTodoContent);
+    this.content.appendChild(this.newTodoBtn);
+  }
 
-
-  projectContent.appendChild(header);
-  projectContent.appendChild(projectTodoContent);
-  projectContent.appendChild(newTodoBtn);
-  document.querySelector('#main').appendChild(projectContent);
-
-  return projectTodoContent;
+  render() {
+    document.querySelector('#main').appendChild(this.content);
+  }
 }
 
-export default NewProjectHTML;
+export default ProjectView;
