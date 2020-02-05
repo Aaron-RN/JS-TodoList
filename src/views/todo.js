@@ -1,3 +1,6 @@
+import '../css/todo.css';
+import { formatDistanceToNow } from 'date-fns'
+
 class TodoView {
   constructor(todo, projectId) {
     this.projectId = projectId;
@@ -10,14 +13,26 @@ class TodoView {
     this.todoChecked.checked = todo.checked;
     const todoCard = document.createElement('div');
     todoCard.className = 'todo-card';
-    const todoTitle = document.createElement('div');
+    if(todo.checked) {
+      todoCard.classList.add('striked');
+    }
+    const todoTitle = document.createElement('p');
     todoTitle.innerHTML = todo.title;
-    const todoDescription = document.createElement('div');
+    todoTitle.classList.add('todo-title');
+
+    const todoPriority = document.createElement('span');
+    todoPriority.classList.add('priority');
+    todoPriority.classList.add(`priority-${todo.priority}`);
+    todoTitle.appendChild(todoPriority);
+
+    const todoDescription = document.createElement('p');
     todoDescription.innerHTML = todo.description;
+    todoDescription.classList.add('todo-description');
     todoDescription.classList.add('hide');
 
     const todoDueDate = document.createElement('div');
-    todoDueDate.innerHTML = todo.dueDate;
+    todoDueDate.classList.add('due-date');
+    todoDueDate.innerHTML = formatDistanceToNow(new Date(todo.dueDate), new Date());
 
     todoCard.appendChild(todoTitle);
     todoCard.appendChild(todoDescription);
@@ -27,13 +42,17 @@ class TodoView {
     this.todoContent.appendChild(todoDueDate);
 
     this.deleteTodoBtn = document.createElement('button');
-    this.deleteTodoBtn.innerHTML = 'x';
+    this.deleteTodoBtn.innerHTML = '&times;';
     this.todoContent.appendChild(this.deleteTodoBtn);
 
-    this.todoContent.addEventListener('click', () => {
+    todoCard.addEventListener('click', () => {
       todoDescription.classList.toggle('hide');
     });
-  }
+
+    this.todoChecked.addEventListener('click', () => {
+      todoCard.classList.toggle('striked');
+    });
+  };
 
   render() {
     const projectDiv = document.querySelector(`#${this.projectId}`);
