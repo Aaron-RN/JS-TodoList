@@ -55,7 +55,7 @@ class TodoView {
   };
 
   render() {
-    const projectDiv = document.querySelector(`#${this.projectId}`);
+    const projectDiv = document.querySelector(`#${this.projectId} .todos`);
     projectDiv.appendChild(this.todoContent);
   }
 }

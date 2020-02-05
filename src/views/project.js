@@ -1,3 +1,5 @@
+import '../css/project.css';
+
 class ProjectView {
   constructor(project) {
     this.content = document.createElement('div');
@@ -5,10 +7,12 @@ class ProjectView {
     this.content.classList.add('project');
 
     const projectTodoContent = document.createElement('div');
+    projectTodoContent.classList.add('todos');
     const header = document.createElement('h3');
     header.innerHTML = project.title;
 
     this.newTodoBtn = document.createElement('button');
+    this.newTodoBtn.classList.add('button');
     this.newTodoBtn.classList.add('button-todo');
     this.newTodoBtn.classList.add('btn-plus');
     this.newTodoBtn.setAttribute('data-id', project.id.toString());
@@ -20,7 +24,7 @@ class ProjectView {
   }
 
   render() {
-    document.querySelector('#main').appendChild(this.content);
+    document.querySelector('#projects').appendChild(this.content);
   }
 }
 

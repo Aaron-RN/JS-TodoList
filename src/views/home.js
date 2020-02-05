@@ -21,8 +21,13 @@ class Home {
     this.newProjectBtn.innerHTML = 'New Project';
     this.newProjectBtn.addEventListener('click', this.modal.showNewProject);
 
+    const projectsDiv = document.createElement('div');
+    projectsDiv.id = 'projects';
+    projectsDiv.classList.add('projects');
+
     this.content.appendChild(header);
     this.content.appendChild(this.newProjectBtn);
+    this.content.appendChild(projectsDiv)
 
     this.modal.addProjectBtn(() => {
       const project = this.modal.getNewProject();
