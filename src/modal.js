@@ -1,18 +1,18 @@
 const initModal = (() => {
   let modal;
   let exitBtn;
-  //Project related elements
+  // Project related elements
   let newProjectDiv;
   let projectTitleInput;
   let projectAddBtn;
-  //Todo related elements
+  // Todo related elements
   let newTodoDiv;
   let todoTitleInput;
   let todoDescriptionInput;
   let todoDueDateInput;
   let todoPriorityInput;
   let todoAddBtn;
-  
+
   const getProjectTitleInput = () => projectTitleInput.value.toString();
   const addProjectBtn = (funct) => projectAddBtn.addEventListener('click', funct);
   const getTodoTitleInput = () => projectTitleInput.value.toString();
@@ -32,12 +32,12 @@ const initModal = (() => {
     todoDescriptionInput.value = '';
     todoDueDateInput.value = '';
     todoPriorityInput.value = '';
-    if (newObject === 'New Project'){
+    if (newObject === 'New Project') {
       projectTitleInput.focus();
       ElementHide(newTodoDiv);
       ElementShow(newProjectDiv);
     }
-    if (newObject === 'New Todo'){
+    if (newObject === 'New Todo') {
       ElementHide(newProjectDiv);
       ElementShow(newTodoDiv);
       todoTitleInput.focus();
@@ -65,7 +65,7 @@ const initModal = (() => {
 
     const projectLabel = NewInputElement('text', projectTitleInput, 'eg. Daily Chores', 'Title');
     projectTitleInput = projectLabel.firstElementChild;
-    
+
     projectAddBtn = document.createElement('button');
     projectAddBtn.classList.add('button');
     projectAddBtn.classList.add('center');
@@ -93,7 +93,7 @@ const initModal = (() => {
     todoAddBtn.classList.add('center');
     todoAddBtn.setAttribute('data-button', 'New Todo');
     todoAddBtn.innerHTML = 'Add Todo';
-    
+
     modal.appendChild(modalContent);
     modalContent.appendChild(exitBtn);
     // Append Project Elements
@@ -101,7 +101,7 @@ const initModal = (() => {
     newProjectDiv.appendChild(header);
     newProjectDiv.appendChild(projectLabel);
     newProjectDiv.appendChild(projectAddBtn);
-    //Append Todo Elements
+    // Append Todo Elements
     modalContent.appendChild(newTodoDiv);
     newTodoDiv.appendChild(header2);
     newTodoDiv.appendChild(todoTitleLabel);
@@ -117,19 +117,19 @@ const initModal = (() => {
   };
 })();
 
-function NewInputElement(type, inputElement, placeholder = "", innerhtml){
+function NewInputElement(type, inputElement, placeholder = '', innerhtml) {
   const todoTitleLabel = document.createElement('div');
   todoTitleLabel.classList = 'label center';
-  todoTitleLabel.innerHTML= innerhtml;
+  todoTitleLabel.innerHTML = innerhtml;
 
   inputElement = document.createElement('input');
   inputElement.setAttribute('type', type);
-  if (type === 'text'){ inputElement.setAttribute('placeholder', placeholder);}
-  if (type === 'number'){ inputElement.setAttribute('min', 1);inputElement.setAttribute('max', 3);}
+  if (type === 'text') { inputElement.setAttribute('placeholder', placeholder); }
+  if (type === 'number') { inputElement.setAttribute('min', 1); inputElement.setAttribute('max', 3); }
   inputElement.classList = 'center';
-  
+
   todoTitleLabel.appendChild(inputElement);
-  
+
   return todoTitleLabel;
 }
 

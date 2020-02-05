@@ -49,14 +49,13 @@ function AddProject() {
   initModal.hide();
 }
 
-//Function for Modal New Todo Button
+// Function for Modal New Todo Button
 function AddTodo() {
-  //Should also get project id
+  // Should also get project id
   const title = initModal.getTodoTitleInput();
   const desc = initModal.getTodoDescriptionInput();
   const dueDate = initModal.getTodoDueDateInput();
   const priority = initModal.getTodoPriorityInput();
-
 }
 
 document.body.appendChild(initHomePage.init());
