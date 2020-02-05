@@ -1,5 +1,5 @@
 import '../css/todo.css';
-import { formatDistanceToNow } from 'date-fns'
+import { format } from 'date-fns'
 
 class TodoView {
   constructor(todo, projectId) {
@@ -32,7 +32,7 @@ class TodoView {
 
     const todoDueDate = document.createElement('div');
     todoDueDate.classList.add('due-date');
-    todoDueDate.innerHTML = formatDistanceToNow(new Date(todo.dueDate), new Date());
+    todoDueDate.innerHTML = format(new Date(todo.dueDate), "MMM do");
 
     todoCard.appendChild(todoTitle);
     todoCard.appendChild(todoDescription);

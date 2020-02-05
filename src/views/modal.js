@@ -130,7 +130,7 @@ const modal = (() => {
       dueDate = today.getDate();
     }
     if (errorsFound) { return false; }
-    return { projectId: todoProjectIdInput.value, todo: new Todo(title, desc, dueDate, priority) };
+    return { projectId: todoProjectIdInput.value, todo: new Todo(title, desc, dueDate.replace(/-/g, '\/'), priority) };
   };
 
   const init = () => {
