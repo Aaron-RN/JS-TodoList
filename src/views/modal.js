@@ -1,6 +1,7 @@
 import '../css/modal.css';
 import Project from '../models/project';
 import Todo from '../models/todo';
+import { format } from 'date-fns'
 
 // Generates two new elements and returns the parent element
 function NewInputElement(type, innerhtml, placeholder = '') {
@@ -23,7 +24,6 @@ function NewInputElement(type, innerhtml, placeholder = '') {
     inputElement.setAttribute('maxlength', '25');
   }
   if (type === 'number' || type === 'range') {
-    inputElement.setAttribute('defaultValue', '1');
     inputElement.setAttribute('value', '1');
     inputElement.setAttribute('min', '1');
     inputElement.setAttribute('max', '3');
@@ -63,6 +63,7 @@ const modal = (() => {
   let todoDescriptionInput;
   let todoDueDateInput;
   let todoPriorityInput;
+  let todoPrioritySpan;
   let todoAddBtn;
 
   const addValidationError = (error) => {
@@ -91,8 +92,9 @@ const modal = (() => {
     projectTitleInput.value = '';
     todoTitleInput.value = '';
     todoDescriptionInput.value = '';
-    todoDueDateInput.value = '';
-    todoPriorityInput.value = '';
+    todoDueDateInput.value = format(new Date(), 'yyyy-MM-dd');
+    todoPriorityInput.value = 1;
+    todoPrioritySpan.className = `priority priority-1`;
   };
 
   const showNewProject = () => {
@@ -125,10 +127,6 @@ const modal = (() => {
     const priority = getTodoPriorityInput();
 
     if (!title) { addValidationError('Todo must have a title!'); errorsFound = true; }
-    if (!dueDate) {
-      const today = new Date();
-      dueDate = today.getDate();
-    }
     if (errorsFound) { return false; }
     return { projectId: todoProjectIdInput.value, todo: new Todo(title, desc, dueDate.replace(/-/g, '\/'), priority) };
   };
@@ -178,6 +176,10 @@ const modal = (() => {
     const todoPriorityLabel = NewInputElement('range', 'Priority', '1 for lowest and 3 for highest');
     todoPriorityInput = todoPriorityLabel.firstElementChild;
 
+    todoPrioritySpan = document.createElement('span');
+    todoPriorityInput.addEventListener('change', () => {
+      todoPrioritySpan.className = `priority priority-${todoPriorityInput.value}`;
+    });
     todoAddBtn = NewButtonElement('Add Todo', 'New Todo');
 
     modalDiv.appendChild(modalContent);
@@ -195,6 +197,7 @@ const modal = (() => {
     newTodoDiv.appendChild(todoDescriptionLabel);
     newTodoDiv.appendChild(todoDueDateLabel);
     newTodoDiv.appendChild(todoPriorityLabel);
+    todoPriorityLabel.appendChild(todoPrioritySpan);
     newTodoDiv.appendChild(todoAddBtn);
 
     return modalDiv;
