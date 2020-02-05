@@ -1,21 +1,23 @@
-const Project = (id, title) => {
-  const todos = [];
-  const getID = () => id;
-  const getTodos = () => todos;
-  const addTodo = (todo) => {
-    todos.push(todo);
-  };
-  const removeTodo = (todoId) => {
-    const index = todos.findIndex((todo) => todo.id === todoId);
-    todos.splice(index, 1);
-  };
-  const getTodo = (todoId) => todos.find((t) => t.id === todoId);
+class Project {
+  constructor(title) {
+    this.id = `project_${Math.random().toString(36).substr(2, 9)}`;
+    this.title = title;
+    this.todos = [];
+  }
 
-  return {
-    title, getTodos, addTodo, removeTodo, getTodo, getID,
-  };
-};
+  addTodo(todo) {
+    this.todos.push(todo);
+  }
 
-// Function creates HTML related to Project object;
+  removeTodo(todoId) {
+    const index = this.todos.findIndex((todo) => todo.id === todoId);
+    this.todos.splice(index, 1);
+  }
+
+  toggleTodo(todoId) {
+    const todo = this.todos.find((t) => t.id === todoId);
+    todo.toggle();
+  }
+}
 
 export default Project;
